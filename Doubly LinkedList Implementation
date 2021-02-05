@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+struct node{
+	int data;
+	node *next;
+	node *prev;
+};
+
+void show(struct node *ptr){
+	while(ptr!=NULL){
+		cout<<ptr->data<<endl;
+		ptr = ptr->next;
+	}
+}
+
+int main(){
+	node *head, *second, *third;
+	
+	//Allocate memory
+	head = new node;
+	second = new node;
+	third = new node;
+	
+	
+	//Assign values and addresses
+	head->data = 1;
+	head->next = second;
+	head->prev = NULL;
+	
+	second->data = 2;
+	second->next = third;
+	second->prev = head;
+	
+	third->data = 3;
+	third->next = NULL;
+	third->prev = second;
+	
+	show(head);
+	
+}
